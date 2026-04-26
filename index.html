@@ -3,52 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SSS Indore | Digital Vault</title>
+    <title>SSSVV Indore | Circulars</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #3b82f6; --bg: #0f172a; --card-bg: #1e293b; --text-main: #f8fafc; --text-dim: #94a3b8; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: var(--text-main); margin: 0; padding: 20px; line-height: 1.5; }
-        .container { max-width: 1200px; margin: 0 auto; }
-        header { text-align: center; padding: 30px 0; border-bottom: 1px solid #334155; margin-bottom: 30px; }
-        h1 { font-weight: 800; font-size: 2.2rem; margin: 0; }
-        .badge { color: var(--primary); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px; }
-        .mail-card { background: var(--card-bg); border-radius: 20px; padding: 25px; margin-bottom: 30px; border: 1px solid #334155; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
-        .mail-header { margin-bottom: 15px; border-bottom: 1px solid #334155; padding-bottom: 15px; }
-        .mail-title { font-size: 1.4rem; font-weight: 700; color: #fff; margin: 0 0 5px 0; }
-        .mail-date { font-size: 0.8rem; color: var(--text-dim); }
-        .grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
-        @media (max-width: 950px) { .grid-layout { grid-template-columns: 1fr; } }
-        .text-content { background: #0f172a; padding: 20px; border-radius: 12px; font-size: 0.95rem; max-height: 550px; overflow-y: auto; border: 1px solid #334155; color: #cbd5e1; }
-        .text-content b, .text-content strong { color: #fff; }
-        .text-content img { display: block; margin: 15px auto; border-radius: 8px; max-width: 100%; }
-        .pdf-viewer { width: 100%; height: 550px; border-radius: 12px; border: none; background: #fff; }
-        .btn-dl { display: inline-block; margin-top: 12px; color: var(--primary); text-decoration: none; font-size: 0.9rem; font-weight: 600; transition: opacity 0.2s; }
-        .btn-dl:hover { opacity: 0.8; }
-        .empty-state { text-align: center; padding: 100px; color: var(--text-dim); }
+        :root { 
+            --glass: rgba(255, 255, 255, 0.2);
+            --text: #1e293b;
+        }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background: linear-gradient(135deg, #87CEEB, #E0F2FE, #FFD1DC);
+            background-attachment: fixed;
+            color: var(--text); 
+            margin: 0; padding: 20px; 
+        }
+        .container { max-width: 1100px; margin: 0 auto; }
+        
+        /* School Logo Placeholder */
+        .logo-circle {
+            width: 100px; height: 100px;
+            background: white;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            overflow: hidden; border: 4px solid #fff;
+        }
+        .logo-circle img { width: 80%; height: auto; }
+
+        header { text-align: center; padding: 20px 0 40px; }
+        h1 { font-weight: 800; font-size: 2.2rem; margin: 0; color: #0369a1; }
+
+        .mail-card { 
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 24px; padding: 25px; 
+            margin-bottom: 30px; border: 1px solid rgba(255,255,255,0.4);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        }
+        .mail-title { font-size: 1.3rem; font-weight: 700; color: #0c4a6e; margin-bottom: 10px; }
+        .mail-date { font-size: 0.85rem; color: #64748b; margin-bottom: 20px; display: block; }
+
+        .grid-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        @media (max-width: 850px) { .grid-layout { grid-template-columns: 1fr; } }
+
+        .text-content { 
+            background: white; padding: 20px; border-radius: 16px; 
+            font-size: 0.95rem; line-height: 1.6; max-height: 500px; 
+            overflow-y: auto; border: 1px solid #e2e8f0; 
+        }
+        .pdf-viewer { width: 100%; height: 500px; border-radius: 16px; border: none; background: white; }
+        .btn-dl { 
+            display: block; text-align: center; margin-top: 15px; 
+            background: #0369a1; color: white; padding: 12px; 
+            border-radius: 12px; text-decoration: none; font-weight: 600;
+        }
+        .empty { text-align: center; padding: 100px; font-weight: 600; color: #0369a1; }
     </style>
 </head>
 <body>
 <div class="container">
     <header>
-        <span class="badge">Cloud Archive • 24/7</span>
-        <h1>School Mail Vault 🥀</h1>
+        <div class="logo-circle">
+            <img src="https://www.sathyasaiindore.com/wp-content/uploads/2021/01/logo-1.png" alt="School Logo">
+        </div>
+        <h1>School Circulars</h1>
     </header>
-    <div id="vault-list"><div class="empty-state">Fetching circulars from GitHub...</div></div>
+    <div id="vault-list"><div class="empty">Loading School Circulars...</div></div>
 </div>
+
 <script>
     const username = "arnavbijlanii"; 
     const repo = "school-vault";
 
     async function fetchVault() {
-        const listContainer = document.getElementById('vault-list');
+        const list = document.getElementById('vault-list');
         try {
             const res = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/data`);
             const files = await res.json();
-            // Sort by filename (timestamp) descending to show newest first
             const dataFiles = files.filter(f => f.name.endsWith('.json')).reverse();
             
-            if(dataFiles.length === 0) { listContainer.innerHTML = '<div class="empty-state">No circulars found in archive.</div>'; return; }
-            listContainer.innerHTML = '';
+            if(dataFiles.length === 0) { list.innerHTML = '<div class="empty">No data found in GitHub.</div>'; return; }
+            list.innerHTML = '';
 
             for (let file of dataFiles) {
                 const dataRes = await fetch(file.download_url);
@@ -58,21 +94,21 @@
                 
                 const pdfHtml = mail.pdfPath 
                     ? `<iframe class="pdf-viewer" src="https://docs.google.com/viewer?url=https://raw.githubusercontent.com/${username}/${repo}/main/${mail.pdfPath}&embedded=true"></iframe>
-                       <a class="btn-dl" href="https://raw.githubusercontent.com/${username}/${repo}/main/${mail.pdfPath}" target="_blank">📥 Download Official PDF</a>`
-                    : `<div class="empty-state" style="padding:40px; background:#0f172a; border-radius:12px;">No PDF attachment.</div>`;
+                       <a class="btn-dl" href="https://raw.githubusercontent.com/${username}/${repo}/main/${mail.pdfPath}" target="_blank">Download PDF</a>`
+                    : `<div class="text-content">No PDF available for this circular.</div>`;
 
                 card.innerHTML = `
                     <div class="mail-header">
-                        <h2 class="mail-title">${mail.subject}</h2>
+                        <div class="mail-title">${mail.subject}</div>
                         <span class="mail-date">${new Date(mail.date).toLocaleString()}</span>
                     </div>
                     <div class="grid-layout">
                         <div class="text-content">${mail.body}</div>
-                        <div class="pdf-box">${pdfHtml}</div>
+                        <div class="pdf-container">${pdfHtml}</div>
                     </div>`;
-                listContainer.appendChild(card);
+                list.appendChild(card);
             }
-        } catch (e) { listContainer.innerHTML = '<div class="empty-state">Error: Could not connect to GitHub.</div>'; }
+        } catch (e) { list.innerHTML = '<div class="empty">Connection Error.</div>'; }
     }
     fetchVault();
 </script>
